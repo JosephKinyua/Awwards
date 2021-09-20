@@ -26,3 +26,9 @@ class Projects(models.Model):
         cls.objects.filter(id=id).update(description=description
         
 class Profile(models.Model):
+    # profilePic = models.ImageField(upload_to='userProfile/', default='userProfile/test.png')
+    profilePic = CloudinaryField('userProfile/', default='userProfile/test.png')
+    username = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    bio = HTMLField(blank=True, null=True)
+    phone = models.IntegerField(blank=True, null=True)
+    count = models.IntegerField(default=0, null=True, blank=True)
