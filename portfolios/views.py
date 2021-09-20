@@ -58,4 +58,9 @@ def userprofile(request, id):
       return render(request, 'userprofile.html', {'userdetail':userdetail, 'curr_projects':curr_projects})
   except Profile.DoesNotExist:
     return HttpResponseRedirect(', Sorry the Page You Looking For Doesnt Exist.')
+
+@login_required(login_url='/accounts/login/')
+def projectdetails(request, id):
+  specproject = Projects.objects.get(id=id)
+  return render(request, 'profile/projectdetails.html', {'specproject':specproject})
     
