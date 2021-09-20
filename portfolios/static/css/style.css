@@ -1,9 +1,35 @@
 .login {
-    background-color: bisque;
-    padding: 100px;
+    background-color: rgb(248, 224, 194, 0.6);
+    padding: 10px;
 }
 
 .register {
-    background-color: bisque;
+    background-color: rgb(248, 224, 194, 0.6);
+    padding: 10px;
+}
+
+.userdetails {
+    background-color: rgb(248, 224, 194, 0.6);
     padding: 100px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+
+.postpro {
+    background-color: rgb(248, 224, 194, 0.6);
+    padding: 100px;
+    border-radius: 18px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+
+.container {
+    background-image: url(./images/new.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
