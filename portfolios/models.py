@@ -1,6 +1,8 @@
 from django.db import models
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -32,4 +34,14 @@ class Profile(models.Model):
   phone = models.IntegerField(blank=True, null=True)
   count = models.IntegerField(default=0, null=True, blank=True)
 
- 
+  @receiver(post_save, sender=User)
+  def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+      Profile.objects.create(username=instance)
+
+  @receiver(post_save, sender=User)
+  def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+  def __str__(self):
+    return self.username.username
