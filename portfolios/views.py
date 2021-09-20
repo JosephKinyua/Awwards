@@ -4,6 +4,8 @@ from .form import UserForm, ProfileForm, PostForm
 from django.contrib import messages
 from .models import Profile, Projects
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+
 
 # Create your views here.
 def home(request):
@@ -44,3 +46,16 @@ def postpoject(request):
   postform = PostForm()
   params = {'postform':postform,}
   return render(request, 'profile/postproject.html', params)
+
+@login_required(login_url='/accounts/login/')
+def userprofile(request, id):
+  try:
+    userdetail = Profile.objects.get(id=id)
+    curr_projects = Projects.user_projects(userdetail.username)
+    if request.user.username == str(userdetail.username):
+      return redirect('profile')
+    else:
+      return render(request, 'userprofile.html', {'userdetail':userdetail, 'curr_projects':curr_projects})
+  except Profile.DoesNotExist:
+    return HttpResponseRedirect(', Sorry the Page You Looking For Doesnt Exist.')
+    
