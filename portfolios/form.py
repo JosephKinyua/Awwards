@@ -13,3 +13,16 @@ class ProfileForm(forms.ModelForm):
       model = Profile
       fields = '__all__'
       exclude = ['username', 'count',]
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Projects
+        fields = ('title', 'image', 'description', 'livelink',)
+        exclude = ['projectowner',]
+        widgets = {
+            'title':TextInput(attrs={
+            'placeholder': 'Project Title...',
+        }),
+        'livelink': TextInput(attrs={
+            'placeholder': 'Project live link...',
+        })
+        }
