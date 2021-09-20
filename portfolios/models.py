@@ -5,30 +5,31 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Projects(models.Model):
-    title = models.CharField(max_length=200)
-    image = CloudinaryField('project/', null=True, blank=True)
-    projectowner = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = HTMLField(null=True, blank=True)
-    livelink = models.URLField(null=True, blank=True)
+  title = models.CharField(max_length=200)
+  image = CloudinaryField('project/', null=True, blank=True)
+  projectowner = models.ForeignKey(User, on_delete=models.CASCADE)
+  description = HTMLField(null=True, blank=True)
+  livelink = models.URLField(null=True, blank=True)
 
-    def __str__(self):
-        return self.title
+  def __str__(self):
+    return self.title
 
-    def save_project(self):
-        self.save()
+  def save_project(self):
+    self.save()
 
-    @classmethod
-    def delete_project(cls, id):
-        cls.objects.filter(id=id).delete()
+  @classmethod
+  def delete_project(cls, id):
+    cls.objects.filter(id=id).delete()
 
-    @classmethod
-    def update_description(cls, id, description):
-        cls.objects.filter(id=id).update(description=description
-        
+  @classmethod
+  def update_description(cls, id, description):
+    cls.objects.filter(id=id).update(description=description)
+    
 class Profile(models.Model):
-    # profilePic = models.ImageField(upload_to='userProfile/', default='userProfile/test.png')
-    profilePic = CloudinaryField('userProfile/', default='userProfile/test.png')
-    username = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    bio = HTMLField(blank=True, null=True)
-    phone = models.IntegerField(blank=True, null=True)
-    count = models.IntegerField(default=0, null=True, blank=True)
+  profilePic = CloudinaryField('userProfile/', default='userProfile/test.png')
+  username = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+  bio = HTMLField(blank=True, null=True)
+  phone = models.IntegerField(blank=True, null=True)
+  count = models.IntegerField(default=0, null=True, blank=True)
+
+ 
