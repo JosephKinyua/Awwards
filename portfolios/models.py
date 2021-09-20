@@ -3,6 +3,7 @@ from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.db.models import Q
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -26,6 +27,22 @@ class Projects(models.Model):
   @classmethod
   def update_description(cls, id, description):
     cls.objects.filter(id=id).update(description=description)
+
+  @classmethod
+  def user_projects(cls, username):
+    projects = cls.objects.filter(projectowner__username=username)
+    return projects
+
+  @classmethod
+  def all_projects(cls):
+    allprojects = cls.objects.all()
+    return allprojects
+
+  @classmethod
+  def searchProjects(cls, searchterm):
+    searchresults = cls.objects.filter(Q(title__icontains=searchterm) | Q(description__icontains=searchterm) | Q(projectowner__username__icontains=searchterm))
+    return searchresults
+
     
 class Profile(models.Model):
   profilePic = CloudinaryField('userProfile/', default='userProfile/test.png')
