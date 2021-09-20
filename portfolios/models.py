@@ -23,4 +23,6 @@ class Projects(models.Model):
 
     @classmethod
     def update_description(cls, id, description):
-        cls.objects.filter(id=id).update(description=description)
+        cls.objects.filter(id=id).update(description=description
+        
+class Profile(models.Model):
