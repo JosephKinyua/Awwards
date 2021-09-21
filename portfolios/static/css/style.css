@@ -48,3 +48,14 @@
 body {
     background-color: rgb(107, 164, 179);
 }
+
+.home,
+h1 {
+    color: aqua;
+}
+
+.home,
+span {
+    color: rgb(169, 19, 189);
+    font-family: italic small-caps bold 12px/30px Georgia, serif;
+}

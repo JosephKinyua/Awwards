@@ -1,4 +1,4 @@
- {% extends 'base.html' %} {% block content %}
+ {% extends 'all-porfolio/base.html' %} {% block content %}
 <h1 class="text-center mt-5 mb-5">Search for {{ search_term }}</h1>
 <div class="container-fluid mb-5">
     <div class="wrapper-grid justify-content-center align-items-center text-center mb-5">
@@ -10,7 +10,6 @@
                 <hr>
                 <div class="d-flex justify-content-between align-items-center">
                     <span>By <a href="{% url 'userprofile' project.projectowner.profile.id %}">{{ project.projectowner.profile }}</a></span>
-                    <span><sub> From Kenya</sub></span>
                 </div>
             </div>
         </div>
