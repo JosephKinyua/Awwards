@@ -18,7 +18,7 @@
 
     <hr>
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="wrapper-grid justify-content-center align-items-center text-center mb-5">
             {% for project in curr_projects %}
             <div class='mr-3 contimage'>
@@ -27,7 +27,7 @@
                     <p><strong>{{ project.title }}</strong></p>
                     <hr>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span>Check Site <a href="{{ project.livelink }}"><i class="fad fa-external-link"></i></a></span>
+                        <span>Check Site <a href="{{ project.livelink }}"></a></span>
                         <span><sub> From Kenya</sub></span>
                     </div>
                 </div>
