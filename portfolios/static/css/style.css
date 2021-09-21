@@ -44,3 +44,7 @@
     -o-border-radius: 18px;
     justify-content: center;
 }
+
+body {
+    background-color: rgb(107, 164, 179);
+}
