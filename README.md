@@ -27,7 +27,7 @@ Run Application
 * python3 manage.py runserver 
 Test Application
 
-* python manage.py test photo
+* python manage.py test portfolios
 Open the application on your browser ````127.0.0.1:8000.````
 ## Known Bugs
 There is no any bug issue.

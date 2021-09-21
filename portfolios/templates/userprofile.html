@@ -25,10 +25,11 @@
                 <a class='proj' href="{% url 'projectdetails'  project.id %}"><img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid userpics"></a>
                 <div class="text-left p-2">
                     <p><strong>{{ project.title }}</strong></p>
-                    <hr>
+
                     <div class="d-flex justify-content-between align-items-center">
                         <span>Check Site <a href="{{ project.livelink }}"></a></span>
                     </div>
+
                 </div>
             </div>
             {% endfor %}

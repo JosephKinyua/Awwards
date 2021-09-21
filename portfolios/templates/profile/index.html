@@ -4,9 +4,12 @@
     <h1 class='text-center'>Profile</h1>
     <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
         <div class="row userdetails ">
-            <div class="col-md-6">
+
+            <div class="col-md-6 pic">
                 <img src="{{ curr_user.profilePic.url }}" alt="{{ curr_user.username }}" class="img-fluid userpic">
             </div>
+
+
             <div class='col-md-6 details'>
                 <h4>{{ curr_user.username }}</h4>
                 <p>Bio: {{ curr_user.bio }}</p>
@@ -44,7 +47,7 @@
                 <hr>
                 <div class="d-flex justify-content-between align-items-center">
                     <span>Check Site <a href="{{ project.livelink }}"></span>
-                    <span><sub> From Kenya</sub></span>
+
                 </div>
             </div>
         </div>

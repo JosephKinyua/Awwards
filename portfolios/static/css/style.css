@@ -59,3 +59,14 @@ span {
     color: rgb(169, 19, 189);
     font-family: italic small-caps bold 12px/30px Georgia, serif;
 }
+
+.userdetails img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.contimage img {
+    height: 300px;
+    width: 500px;
+}
