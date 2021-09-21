@@ -63,4 +63,13 @@ def userprofile(request, id):
 def projectdetails(request, id):
   specproject = Projects.objects.get(id=id)
   return render(request, 'profile/projectdetails.html', {'specproject':specproject})
+
+
+def search(request):
+  if 'search' in request.GET and request.GET['search']:
+    search_term = request.GET.get('search')
+    searchresults = Projects.searchProjects(search_term)
+    return render(request, 'search.html', {'searchresults':searchresults, 'search_term':search_term})
+  else:
+    return redirect('home')
     
